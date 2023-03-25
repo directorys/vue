@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <title>Проект Vue3</title>
+</head>
+<body>
+  <div id="vue" class="vue" v-cloak>
+    <ul class="vue__cards">
+      <!-- Карточка с таймером -->
+      <li class="vue__card" v-for="(card, index) of cards" :key="card._id">
+        <div class="vue__info">
+          <ul class="vue__times">
+            <li class="vue__time" v-if="card.time.hours">{{card.time.hours}}:</li>
+            <li class="vue__time" v-if="card.time.minutes">{{card.time.minutes}}:</li>
+            <li class="vue__time">{{card.time.seconds}}</li>
+          </ul>
+        </div>
+        <div class="vue__info">
+          <div class="vue__width">
+            <div @click="$event => launchTime(index)" ref="targetCard" class="vue__start"></div>
+            <div @click="stopTime(index)" class="vue__reset">
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- Добавление карточки с таймером -->
+      <li @click="addCard" class="vue__card vue__card_type_add">
+        <ul class="vue__card-add">
+          <li class="vue__line"></li>
+          <li class="vue__line"></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- Последняя версия Vue -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

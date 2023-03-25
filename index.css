@@ -1,0 +1,158 @@
+/* Подключение Шрифта */
+@import url(./font/font.css);
+
+/* Правила CSS */
+:root {
+  --background-body-color: #353638;
+  --background-card-color: #696969;
+  --background-line-color: #9E9E9E;
+  --background-hover-color: #FFFFFF;
+  --background-added-color: #9E9E9E;
+  --font-family: 'Gotham Pro', Arial, Helvetica, sans-serif;
+  --font-style: normal;
+}
+
+/* Тело сайта */
+body {
+  margin: 0;
+  background-color: var(--background-body-color);
+}
+
+[v-cloak] {
+  display: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Блок Vue */
+.vue {
+  margin: 0 auto;
+  padding: 72px 46px 82px;
+  font-family: var(--font-family);
+  font-style: var(--font-style);
+}
+
+@media screen and (max-width: 768px) {
+  .vue {
+    padding: 72px 46px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .vue {
+    padding: 72px 46px 77px;
+  }
+}
+
+.vue__cards {
+  margin: 0 auto;
+  max-width: 775px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 225px));
+  gap: 45px 50px;
+}
+
+.vue__card {
+  width: 225px;
+  height: 120px;
+  background-color: var(--background-card-color);
+}
+
+.vue__info {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vue__info:nth-child(2) {
+  border-top: 1px solid var(--background-line-color);
+}
+
+.vue__width {
+  width: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vue__times {
+  display: flex;
+}
+
+.vue__time {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: .95;
+  color: var(--background-line-color);
+}
+
+.vue__start {
+  border: 10px solid transparent;
+  border-left: 10px solid var(--background-line-color);
+  cursor: pointer;
+  transition: background-color .3s ease-out;
+}
+
+.vue__start_type_stop {
+  position: relative;
+  width: 10px;
+  height: 20px;
+  border: none;
+}
+
+.vue__start_type_stop::after,
+.vue__start_type_stop::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  background-color: var(--background-line-color);
+}
+
+.vue__start_type_stop::after {left: 0;}
+.vue__start_type_stop::before {right: 0;}
+
+.vue__reset {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-color: var(--background-line-color);
+  transition: all .3s ease-out;
+}
+
+.vue__card_type_add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.vue__card-add {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* можно также через before & after */
+}
+
+.vue__line {
+  width: 3px;
+  height: 100%;
+  background-color: var(--background-added-color);
+  transition: all .3s ease-out;
+}
+
+.vue__line:nth-child(2) {
+  position: absolute;
+  transform: rotate(90deg);
+}
